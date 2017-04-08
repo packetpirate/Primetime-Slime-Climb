@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Head_Sucker_AI : MonoBehaviour {
 	private BoxCollider2D bc;
-	public GameObject player;
 	public float speed;
 
 	// Use this for initialization
@@ -14,10 +13,19 @@ public class Head_Sucker_AI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update() {
-		var dv = player.transform.position - transform.position;
-		var dist = Mathf.Sqrt((dv.x * dv.x) + (dv.y * dv.y));
-		if(dist < 20.0) {
-			transform.position = Vector2.Lerp(transform.position, player.transform.position, (speed * Time.deltaTime));
+		SpriteRenderer spr = GetComponent<SpriteRenderer>();
+		GameObject player = GameObject.Find("Player");
+
+		if(player.transform.position.x < transform.position.x) spr.flipX = true;
+		else spr.flipX = false;
+
+		float dist = Vector2.Distance(transform.position, player.transform.position);
+		if((dist > 5) && (dist < 50)) {
+			transform.position = Vector2.MoveTowards(transform.position, 
+													 player.transform.position, 
+													 (speed * Time.deltaTime));
+		} else if(dist <= 5) {
+			// suck that slime!
 		}
 	}
 }
