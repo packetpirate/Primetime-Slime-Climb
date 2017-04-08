@@ -12,7 +12,6 @@ public class HoverBobScript : MonoBehaviour {
         initialPosition = transform.position;
         minimum = initialPosition.y - 2;
         maximum = initialPosition.y + 2;
-        Debug.Log(initialPosition);
 	}
 
     // starting value for the Lerp
@@ -22,7 +21,6 @@ public class HoverBobScript : MonoBehaviour {
     void Update () {
         // animate the position of the game object...
         transform.position = new Vector3(initialPosition.x, Mathf.Lerp(minimum, maximum, t), 0);
-        Debug.Log(transform.position);
 
         // .. and increate the t interpolater
         t += 0.5f * Time.deltaTime;
