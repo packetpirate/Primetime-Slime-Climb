@@ -19,4 +19,9 @@ public class Movement : MonoBehaviour {
         var newPosition = new Vector2(rb.transform.position.x + x, rb.transform.position.y + y);
         rb.MovePosition(newPosition);
     }
+
+    public Vector2 GetPosition()
+    {
+        return new Vector2();
+    }
 }
