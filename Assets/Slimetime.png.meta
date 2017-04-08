@@ -1,23 +1,23 @@
 fileFormatVersion: 2
 guid: f5d5a28f89a8ad04bab6acdb70164211
-timeCreated: 1491615050
+timeCreated: 1491665046
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: Slimetime_0
-    21300002: Slimetime_1
-    21300004: Slimetime_2
+    21300000: Platform
+    21300002: SentryBody
+    21300004: SlimeOrb
     21300006: Slimetime_3
     21300008: Slimetime_4
-    21300010: Slimetime_5
+    21300010: TittyGun
     21300012: Slimetime_6
-    21300014: Slimetime_12
-    21300016: Slimetime_14
-    21300018: Slimetime_22
-    21300020: Slimetime_24
-    21300022: Slimetime_25
-    21300024: Slimetime_29
-    21300026: Slimetime_30
+    21300014: ConstipatedSlimeFace
+    21300016: HeadSucker
+    21300018: HappySlimeFace
+    21300020: MediumSlimeFace
+    21300022: SurprisedSlimeFace
+    21300024: SadSlimeFace
+    21300026: AngrySlimeFace
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -92,7 +92,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Slimetime_0
+      name: Platform
       rect:
         serializedVersion: 2
         x: 56
@@ -105,7 +105,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Slimetime_1
+      name: SentryBody
       rect:
         serializedVersion: 2
         x: 552
@@ -118,7 +118,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Slimetime_2
+      name: SlimeOrb
       rect:
         serializedVersion: 2
         x: 1599
@@ -131,7 +131,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Slimetime_5
+      name: TittyGun
       rect:
         serializedVersion: 2
         x: 212
@@ -157,7 +157,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Slimetime_12
+      name: ConstipatedSlimeFace
       rect:
         serializedVersion: 2
         x: 936
@@ -170,7 +170,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Slimetime_14
+      name: HeadSucker
       rect:
         serializedVersion: 2
         x: 1367
@@ -183,7 +183,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Slimetime_22
+      name: HappySlimeFace
       rect:
         serializedVersion: 2
         x: 51
@@ -196,7 +196,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Slimetime_24
+      name: MediumSlimeFace
       rect:
         serializedVersion: 2
         x: 197
@@ -209,7 +209,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Slimetime_25
+      name: SurprisedSlimeFace
       rect:
         serializedVersion: 2
         x: 729
@@ -222,7 +222,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Slimetime_29
+      name: SadSlimeFace
       rect:
         serializedVersion: 2
         x: 374
@@ -235,7 +235,7 @@ TextureImporter:
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: Slimetime_30
+      name: AngrySlimeFace
       rect:
         serializedVersion: 2
         x: 558
