@@ -6,6 +6,7 @@ public class Movement : MonoBehaviour {
     private Rigidbody2D rb;
     public SlimeFace slimeFace;
     public SpriteRenderer sRenderer;
+    public GameObject CongratsBanner;
     public SlimeCamera playerCamera;
 
     // Use this for initialization
@@ -44,6 +45,8 @@ public class Movement : MonoBehaviour {
         {
             transform.position = new Vector3(transform.position.x, transform.position.y, 75);
             playerCamera.LockCamera();
+            CongratsBanner.transform.position = new Vector3(CongratsBanner.transform.position.x, CongratsBanner.transform.position.y, 99);
+
         }
 
     }
