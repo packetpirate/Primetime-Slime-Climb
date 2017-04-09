@@ -9,18 +9,51 @@ public class Titty_Gunner_AI : MonoBehaviour {
 	public GameObject spawn;
 	public GameObject projectile;
 	public float speed;
+    public int MaxDistanceX, MinDistanceX, MaxDistanceY, MinDistanceY;
+    Vector3 initialPosition;
+    float BobMinimum;
+    float BobMaximum;
+    private GameObject player;
 
-	// Use this for initialization
-	void Start() {
+    // Use this for initialization
+    void Start() {
 		original = transform.position;
 		min = original.y - 1;
 		max = original.y + 1;
-	}
+        initialPosition = transform.position;
+        BobMinimum = initialPosition.y - 2;
+        BobMaximum = initialPosition.y + 2;
+        player = GameObject.Find("Player");
+    }
 	
 	// Update is called once per frame
 	void Update() {
-		GameObject player = GameObject.Find("Player");
-		if(player != null) {
+        SpriteRenderer spr = GetComponent<SpriteRenderer>();
+        if (player != null)
+        {
+            BobUpAndDown();
+            if (player.transform.position.x < transform.position.x) spr.flipX = true;
+            else spr.flipX = false;
+
+            float distX = Mathf.Abs(transform.position.x - player.transform.position.x);
+            float distY = Mathf.Abs(transform.position.y - player.transform.position.y);
+            // Keep distance on X axis
+            if ((distX > MaxDistanceX))
+            {
+                transform.position = Vector2.MoveTowards(transform.position,
+                                                         new Vector2(player.transform.position.x, transform.position.y),
+                                                         (speed * Time.deltaTime));
+            }
+            // Always try to be on the same horizontal level as the player.
+            if(transform.position.y != player.transform.position.y + 1 && transform.position.y != player.transform.position.y - 1)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, 
+                                                            new Vector2(transform.position.x, player.transform.position.y), 
+                                                            (speed * Time.deltaTime));
+            }
+
+        }
+        /*if(player != null) {
 			if(player.transform.position.x > transform.position.x) transform.localScale = new Vector3(-1, 1, 0);
 			else transform.localScale = new Vector3(1, 1, 0);
 
@@ -52,6 +85,27 @@ public class Titty_Gunner_AI : MonoBehaviour {
 					t = 0.0f;
 				}
 			}
-		}
-	}
+		}*/
+    }
+
+    private void BobUpAndDown()
+    {
+        // Update is called once per frame
+        // animate the position of the game object...
+        transform.position = new Vector3(initialPosition.x, Mathf.Lerp(BobMinimum, BobMaximum, t), 0);
+
+        // .. and increate the t interpolater
+        t += 0.5f * Time.deltaTime;
+
+        // now check if the interpolator has reached 1.0
+        // and swap maximum and minimum so game object moves
+        // in the opposite direction.
+        if (t > 1.0f)
+        {
+            float temp = BobMaximum;
+            BobMaximum = BobMinimum;
+            BobMinimum = temp;
+            t = 0.0f;
+        }
+    }
 }
