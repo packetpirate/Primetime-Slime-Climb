@@ -25,7 +25,7 @@ public class Slime_Tentacle : MonoBehaviour {
 				Vector2 heading = target - playerPos;
 				var distance = heading.magnitude;
 				var dir = heading / distance;
-				RaycastHit2D hit = Physics2D.Raycast(player.transform.position, dir, 150.0f, 512);
+				RaycastHit2D hit = Physics2D.Raycast(player.transform.position, dir, 150.0f, (1 << 9));
 				if((hit != null) && (hit.transform != null)) {
 					canGrab = false;
 					tether = new Vector2(hit.transform.position.x, hit.transform.position.y);

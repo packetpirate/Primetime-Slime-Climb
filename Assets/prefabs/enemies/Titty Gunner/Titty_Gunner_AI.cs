@@ -30,6 +30,7 @@ public class Titty_Gunner_AI : MonoBehaviour {
 				original = transform.position;
 				min = original.y - 1;
 				max = original.y + 1;
+				t = 0.0f;
 			} else {
 				// bob up and down as in the HoverBob script
 				transform.position = new Vector2(original.x, Mathf.Lerp(min, max, t));
