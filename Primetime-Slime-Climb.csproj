@@ -82,11 +82,13 @@
     <Compile Include="Assets\HappySlimeFace.cs" />
     <Compile Include="Assets\HoverBobScript.cs" />
     <Compile Include="Assets\Movement.cs" />
-    <Compile Include="Assets\NewBehaviourScript.cs" />
     <Compile Include="Assets\SlimeCamera.cs" />
     <Compile Include="Assets\SlimeFace.cs" />
     <Compile Include="Assets\SurprisedSlimeFace.cs" />
     <Compile Include="Assets\prefabs\enemies\Head Sucker\Head_Sucker_AI.cs" />
+    <Compile Include="Assets\prefabs\enemies\Titty Gunner\Titty_Gunner_AI.cs" />
+    <Compile Include="Assets\scripts\Player_Controller.cs" />
+    <Compile Include="Assets\scripts\Projectile_Script.cs" />
     <Compile Include="Assets\scripts\Slime_Tentacle.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

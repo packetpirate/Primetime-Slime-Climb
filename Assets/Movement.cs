@@ -5,6 +5,8 @@ using UnityEngine;
 public class Movement : MonoBehaviour {
     private Rigidbody2D rb;
     public SlimeFace slimeFace;
+    public SpriteRenderer sRenderer;
+    public SlimeCamera playerCamera;
 
     // Use this for initialization
     void Start()
@@ -33,5 +35,16 @@ public class Movement : MonoBehaviour {
         {
             slimeFace.ShowSurprisedFace();
         }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Collision entered");
+        if(other.tag == "EventTrigger")
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y, 75);
+            playerCamera.LockCamera();
+        }
+
     }
 }
