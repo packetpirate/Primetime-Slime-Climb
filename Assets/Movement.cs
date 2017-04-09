@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour {
     private Rigidbody2D rb;
+    public SlimeFace slimeFace;
 
     // Use this for initialization
     void Start()
@@ -16,28 +17,21 @@ public class Movement : MonoBehaviour {
         var x = Input.GetAxis("Horizontal") * Time.deltaTime * 20.0f;
         var newPosition = new Vector2(rb.transform.position.x + x, rb.transform.position.y);
         rb.MovePosition(newPosition);
-
-        var hit = new RaycastHit();
-
-        if (Physics.Raycast(transform.position, Vector3.down))
+        if (Input.GetKey(KeyCode.W))
         {
-            if (hit.collider.attachedRigidbody == GetComponent<Floor>()) //the players .gameObject is there because i'm not sure if you have it set to a transform, if it's a GameObject then you can be rid of it :)
-            {
-                GetComponent<HappySlimeFace>().SetOrderToOne();
-                GetComponent<SurprisedSlimeFace>().SetOrderToZero();
-                Debug.Log("Raycast hit lower Object");
-            }
-            else
-            {
-                GetComponent<SurprisedSlimeFace>().SetOrderToOne();
-                GetComponent<HappySlimeFace>().SetOrderToZero();
-                Debug.Log("Didn't hit anything.");
-            }
+            slimeFace.ShowSurprisedFace();
         }
     }
 
-    public Vector2 GetPosition()
+    void OnCollision(Collision col)
     {
-        return new Vector2();
+        if (col.gameObject.name == "Floor")
+        {
+            slimeFace.ShowHappyFace();
+        }
+        else
+        {
+            slimeFace.ShowSurprisedFace();
+        }
     }
 }

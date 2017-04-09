@@ -3,15 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SlimeFace : MonoBehaviour {
-    public Sprite[] slimeFaces;
+    public Sprite Face1;
+    public Sprite Face2;
+    public SpriteRenderer sRenderer;
      
 	// Use this for initialization
 	void Start () {
-        slimeFaces = Resources.LoadAll<Sprite>("sprites/Slimetime");
+        sRenderer = GetComponent<SpriteRenderer>();
     }
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+    public void ShowHappyFace()
+    {
+        sRenderer.sprite = Face1;
+    }
+
+    public void ShowSurprisedFace()
+    {
+        sRenderer.sprite = Face2;
+    }
 }
