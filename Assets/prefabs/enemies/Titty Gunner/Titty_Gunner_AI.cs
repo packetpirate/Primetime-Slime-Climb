@@ -33,14 +33,13 @@ public class Titty_Gunner_AI : MonoBehaviour {
 				max = original.y + 1;
 				t = 0.0f;
 			} else if(dist < 50) {
-				// create a new projectile
-				Vector2 sp = spawn.transform.position;
-				//float theta = Vector2.Angle(sp, player.transform.position) * Mathf.Deg2Rad;
-				//projectile.GetComponent<Projectile_Script>().transform.position = sp;
-				//projectile.GetComponent<Projectile_Script>().theta = theta;
-				projectile.transform.Rotate(new Vector3(45.0f, 0, 0));
-				Instantiate(projectile);
-				projectile.transform.Rotate(new Vector3(-45.0f, 0, 0));
+				// create the projectile
+				Vector3 sp = spawn.transform.position;
+				Vector3 pl = player.transform.position;
+				Vector3 dir = pl - sp;
+				float angle = Mathf.Atan2(dir.x, dir.y) * Mathf.Rad2Deg;
+				Quaternion rot = Quaternion.AngleAxis(angle, Vector3.forward);
+				GameObject bullet = Instantiate(projectile, sp, rot);
 			} else {
 				// bob up and down as in the HoverBob script
 				transform.position = new Vector2(original.x, Mathf.Lerp(min, max, t));
