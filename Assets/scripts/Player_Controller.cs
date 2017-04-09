@@ -5,6 +5,7 @@ using UnityEngine;
 public class Player_Controller : MonoBehaviour {
 	public ParticleSystem particleSys;
 	public float radius; // used as player health, essentially
+	public float absorptionRate;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +20,8 @@ public class Player_Controller : MonoBehaviour {
 	void OnCollisionEnter2D(Collision2D other) {
 		if(other.gameObject.name.Contains("Titty Gunner")) {
 			Destroy(other.gameObject);
-			radius += 0.5f;
+			radius += absorptionRate;
+			particleSys.startLifetime = radius;
 		}
 	}
 }
