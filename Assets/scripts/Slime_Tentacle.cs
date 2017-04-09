@@ -54,7 +54,7 @@ public class Slime_Tentacle : MonoBehaviour {
                 DestroyBlobOnTetherPoint(tether);
                 player.GetComponent<Rigidbody2D>().gravityScale = gravity;
                 // Clear the line renderer
-                lineRenderer.numPositions = 0;
+                lineRenderer.positionCount = 0;
             }
 
 			if(!canGrab && (tether != Vector2.zero)) {
@@ -88,7 +88,7 @@ public class Slime_Tentacle : MonoBehaviour {
 
         lineEnds[0] = new Vector3(slime.transform.position.x, slime.transform.position.y);
         lineEnds[1] = new Vector3(tether.x, tether.y);
-        lineRenderer.numPositions = 2;
+        lineRenderer.positionCount = 2;
         lineRenderer.SetPositions(lineEnds);
     }
 

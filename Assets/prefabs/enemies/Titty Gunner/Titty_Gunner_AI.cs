@@ -6,6 +6,8 @@ public class Titty_Gunner_AI : MonoBehaviour {
 	private Vector2 original;
 	private float t = 0.0f;
 	private float min, max;
+	public GameObject spawn;
+	public GameObject projectile;
 	public float speed;
 
 	// Use this for initialization
@@ -17,7 +19,6 @@ public class Titty_Gunner_AI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update() {
-		SpriteRenderer spr = GetComponent<SpriteRenderer>();
 		GameObject player = GameObject.Find("Player");
 		if(player != null) {
 			if(player.transform.position.x > transform.position.x) transform.localScale = new Vector3(-1, 1, 0);
@@ -31,6 +32,13 @@ public class Titty_Gunner_AI : MonoBehaviour {
 				min = original.y - 1;
 				max = original.y + 1;
 				t = 0.0f;
+			} else if(dist < 50) {
+				// create a new projectile
+				Vector2 sp = spawn.transform.position;
+				float theta = Vector2.Angle(player.transform.position, sp) * Mathf.Deg2Rad;
+				projectile.GetComponent<Projectile_Script>().transform.position = sp;
+				projectile.GetComponent<Projectile_Script>().theta = theta;
+				Instantiate(projectile);
 			} else {
 				// bob up and down as in the HoverBob script
 				transform.position = new Vector2(original.x, Mathf.Lerp(min, max, t));
