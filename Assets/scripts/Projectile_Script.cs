@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile_Script : MonoBehaviour {
-	public float theta;
-	public float speed;
+	public float speed = 5.0f;
 
 	// Use this for initialization
 	void Start() {
@@ -13,10 +12,8 @@ public class Projectile_Script : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update() {
-		var dx = Mathf.Cos(theta) * speed * Time.deltaTime;
-		var dy = Mathf.Sin(theta) * speed * Time.deltaTime;
-
-		transform.position = new Vector2((transform.position.x + dx), (transform.position.y + dy));
+		transform.position += transform.forward * speed * Time.deltaTime;
+		//transform.position = new Vector2((transform.position.x + dx), (transform.position.y + dy));
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
